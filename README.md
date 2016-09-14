@@ -1,5 +1,5 @@
 # HyperFrame-Bridge
-Module to enable Javascript-HyperFrame communication
+Module to enable Javascript - HyperFrame communication
 
 ### Initialize: 
 Establishes connection between javascript and iOS webview.  Run this method once.
