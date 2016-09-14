@@ -25,15 +25,14 @@
 		console.log('createPdf callback', response)
 	}
 
-	var create_button = document.getElementById('create');
-
-	create_button.onclick = function() {
-		Hyper.Bridge.createPdf(pdf_data, null, callback)
+	document.getElementById('create').onclick = function() {
+		Hyper.Bridge.createPdf(pdf_data, 'Default title', callback)
 	}
 
+	// Initialize
 	Hyper.Bridge.init();
 
-})()
+})();
 
 </script>
 </html>
