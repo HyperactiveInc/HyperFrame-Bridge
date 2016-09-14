@@ -1,0 +1,39 @@
+<html>
+<head>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Main menu</h1>
+		<a href="#" id="create">Create PDF</a>
+	</div>
+</body>
+<script src="js/hyperframe-bridge.js"></script>
+<script src="js/pdf_data.js"></script>
+<script>
+
+(function() {
+
+	function callback(response) {
+		/*
+		 * success response is formatted as string, ie: "{\"success\":\"true\"}"
+		 *
+		 * for debug (if working outside of HyperFrame environment)
+		 * response should return the Base64 string
+		 *
+ 		*/
+		console.log('createPdf callback', response)
+	}
+
+	var create_button = document.getElementById('create');
+
+	create_button.onclick = function() {
+		Hyper.Bridge.createPdf(pdf_data, null, callback)
+	}
+
+	Hyper.Bridge.init();
+
+})()
+
+</script>
+</html>
