@@ -1,7 +1,7 @@
 # HyperFrame-Bridge
 Module to enable Javascript - HyperFrame communication
 
-### Initialize: 
+### Initialize
 Establishes connection between javascript and iOS webview.  Run this method once.
 ```
 Hyper.Bridge.init();
