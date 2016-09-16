@@ -37,9 +37,10 @@ Hyper.Bridge = (function() {
    * Required: registerHandler('shouldMirror') in handleBridgeDidConnect()
    *
    * Parameters:
-   * ev: (required) Event to mirror
+   * ev       : (required) Event to mirror
+   * callback : (optional) Success callback function
    */
-  function mirror(ev) {
+  function mirrorEvent(ev, callback) {
     if (!_bridge) return callback(ev);
     // send request to iOS
     _bridge.callHandler('mirror', {
@@ -51,9 +52,10 @@ Hyper.Bridge = (function() {
    * Present a single content item in HyperFrame
    *
    * Parameters:
-   * url: (required) Address of Webpage
+   * contentId  : (required) Address of Webpage
+   * callback   : (optional) Success callback function
    */
-  function presentContentItem(contentId) {
+  function presentContentItem(contentId, callback) {
     if (!_bridge) return callback(contentId);
     // send request to iOS
     _bridge.callHandler('present', {
@@ -67,8 +69,9 @@ Hyper.Bridge = (function() {
    * Parameters:
    * playlistId : (required)
    * index      : (optional) slide index to open playlist at
+   * callback   : (optional) Success callback function
    */
-  function presentPlaylist(playlistId, index) {
+  function presentPlaylist(playlistId, index, callback) {
     if (!_bridge) return callback(playlistId);
     // send request to iOS
     _bridge.callHandler('playlist', {
@@ -81,9 +84,10 @@ Hyper.Bridge = (function() {
    * Present a live webpage
    *
    * Parameters:
-   * url: (required) Address of Webpage
+   * url      : (required) Address of Webpage
+   * callback : (optional) Success callback function
    */
-  function presentWebpage(url) {
+  function presentWebpage(url, callback) {
     if (!_bridge) return callback(url);
     // send request to iOS
     _bridge.callHandler('webpage', {
@@ -94,9 +98,12 @@ Hyper.Bridge = (function() {
   /*
    * Get mobile device name from HyperFrame
    * Required: registerHandler('shouldReturnDeviceName') in handleBridgeDidConnect()
+   *
+   * Parameters:
+   * callback: (optional) Success callback function
    */
-  function requestDeviceName() {
-    if (!_bridge) return;
+  function requestDeviceName(callback) {
+    if (!_bridge) return callback();
     // send request to iOS
     _bridge.callHandler('returnDeviceName', {}, callback);
   }
@@ -106,9 +113,10 @@ Hyper.Bridge = (function() {
    * Required: registerHandler('shouldSwitchSlide') in handleBridgeDidConnect()
    *
    * Parameters:
-   * index: (required) New index to store
+   * index    : (required) New index to store
+   * callback : (optional) Success callback function
    */
-  function updateStoredIndex(index) {
+  function updateStoredIndex(index, callback) {
     if (!_bridge) return callback(index);
     // send request to iOS
     _bridge.callHandler('switchSlide', {
