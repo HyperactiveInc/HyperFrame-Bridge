@@ -40,3 +40,15 @@ Hyper.Bridge.presentContentItem(contentId, callback);
 |:-------------|:-----------------------------|:---------|
 | contentId    | String (HyperCMS Content ID) | required |
 | callback()   | Function                     | optional |
+
+
+### Present Playlist
+Display playlist via HyperFrame UI.  
+```
+Hyper.Bridge.presentPlaylist(playlistId, slideIndex, callback);
+```
+| Parameter    | Type                          |          |
+|:-------------|:------------------------------|:---------|
+| playlistId   | String (HyperCMS Playlist ID) | required |
+| slideIndex   | Integer                       | optional |
+| callback()   | Function                      | optional |
