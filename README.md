@@ -1,7 +1,7 @@
 # HyperFrame-Bridge
 Module to enable Javascript - HyperFrame communication
 
-### Getting Started
+## Getting Started
 1. Download the javascript file, `hyperframe-bridge.js` and load it on your page
 2. On document load*, initialize the bridge
 
@@ -12,6 +12,8 @@ Establishes connection between javascript and iOS webview.  Run this method once
 ```
 Hyper.Bridge.init();
 ```
+
+## Methods
 
 ### Create PDF
 Generates a PDF file from a Base64 encoded string.  
@@ -27,3 +29,14 @@ Hyper.Bridge.createPdf(base64String, defaultTitle, callback);
 | data         | String (Base64 encoded representation of PDF) | required |
 | defaultTitle | String                                        | optional |
 | callback()   | Function                                      | optional |
+
+
+### Present Content Item
+Display file via HyperFrame UI.  
+```
+Hyper.Bridge.presentContentItem(contentId, callback);
+```
+| Parameter    | Type                         |          |
+|:-------------|:-----------------------------|:---------|
+| contentId    | String (HyperCMS Content ID) | required |
+| callback()   | Function                     | optional |
