@@ -11,9 +11,8 @@ Hyper.Bridge = (function() {
     presentWebpage      : presentWebpage,
     requestDeviceName   : requestDeviceName,
     updateStoredIndex   : updateStoredIndex,
+    bridge              : null,
   };
-
-  var _bridge = null;
 
   /*
    * Generate PDF file in HyperFrame
@@ -24,9 +23,9 @@ Hyper.Bridge = (function() {
    * callback   : (optional) Success callback function
    */
   function createPdf(b64String, title, callback) {
-    if (!_bridge) return callback(b64String);
+    if (!pub.bridge) return callback(b64String);
     // send request to iOS
-    _bridge.callHandler('createPdfFromData', {
+    pub.bridge.callHandler('createPdfFromData', {
       data: b64String,
       name: title ? title : 'generated-pdf'
     }, callback);
@@ -41,9 +40,9 @@ Hyper.Bridge = (function() {
    * callback : (optional) Success callback function
    */
   function mirrorEvent(ev, callback) {
-    if (!_bridge) return callback(ev);
+    if (!pub.bridge) return callback(ev);
     // send request to iOS
-    _bridge.callHandler('mirror', {
+    pub.bridge.callHandler('mirror', {
       ev: ev,
     }, callback);
   }
@@ -56,9 +55,9 @@ Hyper.Bridge = (function() {
    * callback   : (optional) Success callback function
    */
   function presentContentItem(contentId, callback) {
-    if (!_bridge) return callback(contentId);
+    if (!pub.bridge) return callback(contentId);
     // send request to iOS
-    _bridge.callHandler('present', {
+    pub.bridge.callHandler('present', {
       content_id: contentId,
     }, callback);
   }
@@ -72,9 +71,9 @@ Hyper.Bridge = (function() {
    * callback   : (optional) Success callback function
    */
   function presentPlaylist(playlistId, index, callback) {
-    if (!_bridge) return callback(playlistId);
+    if (!pub.bridge) return callback(playlistId);
     // send request to iOS
-    _bridge.callHandler('playlist', {
+    pub.bridge.callHandler('playlist', {
       playlist_id: playlistId,
       index: index ? index : 0,
     }, callback);
@@ -88,9 +87,9 @@ Hyper.Bridge = (function() {
    * callback : (optional) Success callback function
    */
   function presentWebpage(url, callback) {
-    if (!_bridge) return callback(url);
+    if (!pub.bridge) return callback(url);
     // send request to iOS
-    _bridge.callHandler('webpage', {
+    pub.bridge.callHandler('webpage', {
       url: url,
     }, callback);
   }
@@ -103,9 +102,9 @@ Hyper.Bridge = (function() {
    * callback: (optional) Success callback function
    */
   function requestDeviceName(callback) {
-    if (!_bridge) return callback();
+    if (!pub.bridge) return callback();
     // send request to iOS
-    _bridge.callHandler('returnDeviceName', {}, callback);
+    pub.bridge.callHandler('returnDeviceName', {}, callback);
   }
 
   /*
@@ -117,9 +116,9 @@ Hyper.Bridge = (function() {
    * callback : (optional) Success callback function
    */
   function updateStoredIndex(index, callback) {
-    if (!_bridge) return callback(index);
+    if (!pub.bridge) return callback(index);
     // send request to iOS
-    _bridge.callHandler('switchSlide', {
+    pub.bridge.callHandler('switchSlide', {
       slide_index: index,
     }, callback);
   }
@@ -184,7 +183,7 @@ Hyper.Bridge = (function() {
     br.registerHandler('shouldReturnDeviceName', handleShouldReturnDeviceName);
     br.registerHandler('shouldSwitchSlide', handleShouldSwitchSlide);
     // Store bridge as global var
-    _bridge = br;
+    pub.bridge = br;
   }
 
   /*
@@ -193,8 +192,8 @@ Hyper.Bridge = (function() {
   function init() {
     console.log('bridge.js init');
     // init bridge
-    _bridge ? console.warn('bridge already exists!')
-            : connectWebViewJavascriptBridge(handleBridgeDidConnect);
+    pub.bridge ? console.warn('bridge already exists!')
+               : connectWebViewJavascriptBridge(handleBridgeDidConnect);
   }
 
   return pub;
