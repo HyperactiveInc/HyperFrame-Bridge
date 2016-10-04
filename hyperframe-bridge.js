@@ -174,6 +174,13 @@ Hyper.Bridge = (function() {
   }
 
   /*
+   * Respond to webview click for desktop
+   */
+  function handleWebviewClick() {
+    document.getElementsByTagName('body')[0].click();
+  }
+
+  /*
    * Callback method for successful connection to iOS application
    */
   function handleBridgeDidConnect(br) {
@@ -182,6 +189,7 @@ Hyper.Bridge = (function() {
     br.registerHandler('shouldMirror', handleShouldMirror);
     br.registerHandler('shouldReturnDeviceName', handleShouldReturnDeviceName);
     br.registerHandler('shouldSwitchSlide', handleShouldSwitchSlide);
+    br.registerHandler('webviewClicked', handleWebviewClick);
     // Store bridge as global var
     pub.bridge = br;
   }
