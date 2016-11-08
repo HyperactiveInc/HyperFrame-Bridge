@@ -102,6 +102,7 @@ Hyper.Bridge = (function() {
    *
    * Parameters:
    * url      : (required) Address of Webpage
+   * callback : (optional) Success callback function
    */
   function presentWebpage(url) {
     if (!pub.bridge) return console.warn('No Bridge | Present Webpage', url);

@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'centrale_sans';
+    src: url('typedepot_-_centralesans-xbold-webfont.eot');
+    src: url('typedepot_-_centralesans-xbold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('typedepot_-_centralesans-xbold-webfont.woff') format('woff'),
+         url('typedepot_-_centralesans-xbold-webfont.ttf') format('truetype'),
+         url('typedepot_-_centralesans-xbold-webfont.svg#centrale_sansregular') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'centrale_sans';
+    src: url('typedepot_-_centralesans-bold-webfont.eot');
+    src: url('typedepot_-_centralesans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('typedepot_-_centralesans-bold-webfont.woff') format('woff'),
+         url('typedepot_-_centralesans-bold-webfont.ttf') format('truetype'),
+         url('typedepot_-_centralesans-bold-webfont.svg#centrale_sansregular') format('svg');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'centrale_sans';
+    src: url('typedepot_-_centralesans-medium-webfont.eot');
+    src: url('typedepot_-_centralesans-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('typedepot_-_centralesans-medium-webfont.woff') format('woff'),
+         url('typedepot_-_centralesans-medium-webfont.ttf') format('truetype'),
+         url('typedepot_-_centralesans-medium-webfont.svg#centrale_sansregular') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'centrale_sans';
+    src: url('typedepot_-_centralesans-regular-webfont.eot');
+    src: url('typedepot_-_centralesans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('typedepot_-_centralesans-regular-webfont.woff') format('woff'),
+         url('typedepot_-_centralesans-regular-webfont.ttf') format('truetype'),
+         url('typedepot_-_centralesans-regular-webfont.svg#centrale_sansregular') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'centrale_sans';
+    src: url('typedepot_-_centralesans-light-webfont.eot');
+    src: url('typedepot_-_centralesans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('typedepot_-_centralesans-light-webfont.woff') format('woff'),
+         url('typedepot_-_centralesans-light-webfont.ttf') format('truetype'),
+         url('typedepot_-_centralesans-light-webfont.svg#centrale_sanslight') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'centrale_sans';
+    src: url('typedepot_-_centralesans-xlight-webfont.eot');
+    src: url('typedepot_-_centralesans-xlight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('typedepot_-_centralesans-xlight-webfont.woff') format('woff'),
+         url('typedepot_-_centralesans-xlight-webfont.ttf') format('truetype'),
+         url('typedepot_-_centralesans-xlight-webfont.svg#centrale_sansthin') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'centrale_sans';
+    src: url('typedepot_-_centralesans-thin-webfont.eot');
+    src: url('typedepot_-_centralesans-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('typedepot_-_centralesans-thin-webfont.woff') format('woff'),
+         url('typedepot_-_centralesans-thin-webfont.ttf') format('truetype'),
+         url('typedepot_-_centralesans-thin-webfont.svg#centrale_sansthin') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'centrale_sans';
+    src: url('typedepot_-_centralesans-xthin-webfont.eot');
+    src: url('typedepot_-_centralesans-xthin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('typedepot_-_centralesans-xthin-webfont.woff') format('woff'),
+         url('typedepot_-_centralesans-xthin-webfont.ttf') format('truetype'),
+         url('typedepot_-_centralesans-xthin-webfont.svg#centrale_sansthin') format('svg');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'centrale_sans';
+    src: url('typedepot_-_centralesans-hairline-webfont.eot');
+    src: url('typedepot_-_centralesans-hairline-webfont.eot?#iefix') format('embedded-opentype'),
+         url('typedepot_-_centralesans-hairline-webfont.woff') format('woff'),
+         url('typedepot_-_centralesans-hairline-webfont.ttf') format('truetype'),
+         url('typedepot_-_centralesans-hairline-webfont.svg#centrale_sansthin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+
+html, body, div, span, object, iframe, 
+h1, h2, h3, h4, h5, h6, p, del, dfn, 
+em, img, ins, kbd, q, samp, small, strong, 
+b, i, dl, dt, dd, ol, ul, li, fieldset, 
+form, label, table, tbody, tfoot, thead, 
+tr, th, td, article, aside, footer, header, 
+nav, section {
+    font-family: 'centrale_sans', sans-serif;
+    font-weight: 500;
+}

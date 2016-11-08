@@ -5,20 +5,14 @@ Hyper.Bridge = (function() {
   var pub = {
     init                : init,
     createPdf           : createPdf,
-    mirror              : mirror,
+    mirrorEvent         : mirrorEvent,
     presentContentItem  : presentContentItem,
-    presentInterface    : presentInterface,
     presentPlaylist     : presentPlaylist,
     presentWebpage      : presentWebpage,
     requestDeviceName   : requestDeviceName,
     updateStoredIndex   : updateStoredIndex,
     bridge              : null,
   };
-
-  function isFunction(functionToCheck) {
-      var getType = {};
-      return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
-  }
 
   /*
    * Generate PDF file in HyperFrame
@@ -29,7 +23,7 @@ Hyper.Bridge = (function() {
    * callback   : (optional) Success callback function
    */
   function createPdf(b64String, title, callback) {
-    if (!pub.bridge) return console.warn('No Bridge | createPdf', b64String, title);
+    if (!pub.bridge) return callback(b64String);
     // send request to iOS
     pub.bridge.callHandler('createPdfFromData', {
       data: b64String,
@@ -45,11 +39,14 @@ Hyper.Bridge = (function() {
    * ev       : (required) Event to mirror
    * callback : (optional) Success callback function
    */
-  function mirror(id) {
-    if (!pub.bridge) return console.warn('No Bridge | mirror', id);
+  function mirrorEvent(ev, callback) {
+    if (!pub.bridge) {
+    	console.log('no bridge | mirror', ev);
+  		return;
+  	}
     // send request to iOS
     pub.bridge.callHandler('mirror', {
-      id: id,
+      ev: ev,
     });
   }
 
@@ -57,28 +54,15 @@ Hyper.Bridge = (function() {
    * Present a single content item in HyperFrame
    *
    * Parameters:
-   * contentId  : (required) Content item Id
+   * contentId  : (required) Address of Webpage
+   * callback   : (optional) Success callback function
    */
-  function presentContentItem(contentId) {
-    if (!pub.bridge) return console.warn('No Bridge | Present Content Item', contentId);
+  function presentContentItem(contentId, callback) {
+    if (!pub.bridge) return callback(contentId);
     // send request to iOS
     pub.bridge.callHandler('present', {
       content_id: contentId,
-    });
-  }
-
-  /*
-   * Present another Interface
-   *
-   * Parameters:
-   * contentId  : (required) Inteface ID
-   */
-  function presentInterface(interfaceId) {
-    if (!pub.bridge) return console.warn('No Bridge | Present Interface', interfaceId);
-    // send request to iOS
-    pub.bridge.callHandler('interface', {
-      content_id: interfaceId,
-    });
+    }, callback);
   }
 
   /*
@@ -87,14 +71,17 @@ Hyper.Bridge = (function() {
    * Parameters:
    * playlistId : (required)
    * index      : (optional) slide index to open playlist at
+   * callback   : (optional) Success callback function
    */
-  function presentPlaylist(playlistId, index) {
-    if (!pub.bridge) return console.warn('No Bridge | Present Playlist', playlistId, index);
+  function presentPlaylist(playlistId, index, callback) {
+    if (!pub.bridge) {
+		return callback(playlistId);
+	}
     // send request to iOS
     pub.bridge.callHandler('playlist', {
       playlist_id: playlistId,
       index: index ? index : 0,
-    });
+    }, callback);
   }
 
   /*
@@ -102,13 +89,14 @@ Hyper.Bridge = (function() {
    *
    * Parameters:
    * url      : (required) Address of Webpage
+   * callback : (optional) Success callback function
    */
-  function presentWebpage(url) {
-    if (!pub.bridge) return console.warn('No Bridge | Present Webpage', url);
+  function presentWebpage(url, callback) {
+    if (!pub.bridge) return callback(url);
     // send request to iOS
     pub.bridge.callHandler('webpage', {
       url: url,
-    });
+    }, callback);
   }
 
   /*
@@ -116,7 +104,7 @@ Hyper.Bridge = (function() {
    * Required: registerHandler('shouldReturnDeviceName') in handleBridgeDidConnect()
    *
    * Parameters:
-   * callback: (required) Success callback function
+   * callback: (optional) Success callback function
    */
   function requestDeviceName(callback) {
     if (!pub.bridge) return callback();
@@ -133,11 +121,11 @@ Hyper.Bridge = (function() {
    * callback : (optional) Success callback function
    */
   function updateStoredIndex(index, callback) {
-    if (!pub.bridge) return console.warn('No Bridge | updateStoredIndex', index);
+    if (!pub.bridge) return callback(index);
     // send request to iOS
     pub.bridge.callHandler('switchSlide', {
       slide_index: index,
-    });
+    }, callback);
   }
 
   /*
@@ -167,8 +155,9 @@ Hyper.Bridge = (function() {
     // handle mirror event
     console.log('shouldMirror', data);
 
-    if (data.id === 'toggle') {
-        Hyper.Main.toggle();
+    if (data === 'runCurrentSequence') {
+        console.log('try to run sequnce on widescreen')
+        Hyper.Main.runCurrentSequence();
     }
 
     // debug only
