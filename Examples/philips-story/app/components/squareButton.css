@@ -1,0 +1,27 @@
+$bright-blue: rgba(8, 95, 166, 1);
+
+$highlight: rgba(255, 255, 255, 0.2);
+
+
+.square-button {
+	cursor: pointer;
+	font-weight: bold;
+  text-decoration: none;
+	user-select: none;
+	margin: 0 1vh;
+	width: 22vh;
+
+	> img {
+		width: 100%;
+		z-index: 99;
+		position: relative;
+	}
+
+	> .submenu {
+		z-index: -1;
+	}
+}
+
+.button:active {
+
+}
