@@ -1,0 +1,22 @@
+{
+  "name": "hyperframe-bridge",
+  "version": "1.0.0",
+  "description": "Module to enable Javascript - HyperFrame communication",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HyperactiveInc/HyperFrame-Bridge.git"
+  },
+  "author": "David Young",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HyperactiveInc/HyperFrame-Bridge/issues"
+  },
+  "homepage": "https://github.com/HyperactiveInc/HyperFrame-Bridge#readme"
+}
