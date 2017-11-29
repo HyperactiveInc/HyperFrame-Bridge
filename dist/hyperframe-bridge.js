@@ -129,11 +129,27 @@ const HyperFrame = {
    */
   requestDeviceName: function({ handler }) {
     if (!this.bridge) return console.warn('No Bridge | Request Device Name', url);
-    //
+    // handle response
     this.handlers.deviceName = handler;
     // send request to iOS
     this.bridge.callHandler('returnDeviceName');
   }
+
+  /**
+   * Send localytics tracking data to iOS
+   * 
+   * Parameters:
+   * key: (required) Event key
+   * attributes: (optional) Event attributes
+   */
+  trackLocalytics: ({ key, attributes }) => {
+    if (!this.bridge) return console.warn('No Bridge | Track', key, attributes);
+    // call ios handler
+    HyperFrame.bridge.callHandler('localytics', {
+      eventKey: key, 
+      attributes,
+    });
+  },
 
   /*
    * Establish connection with iOS application
