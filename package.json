@@ -2,7 +2,7 @@
   "name": "hyperframe-bridge",
   "version": "1.0.0",
   "description": "Module to enable Javascript - HyperFrame communication",
-  "main": "hyperframe-bridge.js",
+  "main": "dist/hyperframe-bridge.js",
   "directories": {
     "example": "examples"
   },
