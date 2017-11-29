@@ -1,8 +1,8 @@
 {
   "name": "hyperframe-bridge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Module to enable Javascript - HyperFrame communication",
-  "main": "index.js",
+  "main": "hyperframe-bridge.js",
   "directories": {
     "example": "examples"
   },
@@ -13,16 +13,12 @@
     "type": "git",
     "url": "git+https://github.com/HyperactiveInc/HyperFrame-Bridge.git"
   },
-  "author": "David Young",
+  "author": "David Young <david@hyperactive.to> (https",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/HyperactiveInc/HyperFrame-Bridge/issues"
   },
   "homepage": "https://github.com/HyperactiveInc/HyperFrame-Bridge#readme",
   "devDependencies": {},
-  "dependencies": {
-    "babel": "^6.5.2",
-    "babel-cli": "^6.22.2",
-    "babel-preset-es2015": "^6.22.0"
-  }
+  "dependencies": {}
 }
